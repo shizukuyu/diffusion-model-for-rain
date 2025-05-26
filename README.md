@@ -1,5 +1,11 @@
 # diffusion-model-for-rain
 
+Precipitation forecasting at high spatial resolution (e.g., 1 km) is critical for applications such as flood prediction, agriculture, and urban water management. However, traditional numerical weather prediction (NWP) models, such as the ERA5 reanalysis dataset, typically provide coarser-resolution outputs (e.g., 25 km), which lack the fine-scale details necessary for localized decision-making.
+
+To bridge this gap, statistical and machine learning-based downscaling methods have been widely adopted. These approaches enhance low-resolution forecasts by learning the relationship between coarse-scale atmospheric variables (e.g., wind, temperature, humidity) and high-resolution precipitation patterns. While conventional methods like convolutional neural networks (CNNs) and generative adversarial networks (GANs) have shown promise, they often struggle with generating realistic fine-scale variability and may produce overly smoothed or physically inconsistent outputs.
+
+Recent advances in generative diffusion models, particularly Denoising Diffusion Probabilistic Models (DDPM), offer a powerful alternative. These models iteratively refine noise into structured data, making them well-suited for high-resolution weather and climate applications. Unlike GANs, diffusion models are less prone to mode collapse and can generate more diverse and physically plausible precipitation fields.
+
 ## Data
 
 I analyze hourly precipitation data over South China at a 1 km resolution (file: Z_SURF_C_BABJ_20220101001916_P_CMPA_RT_BCGZ_0P01_HOR-PRE.nc), a product from the China Meteorological Administration (CMA). Additionally, I use low-resolution ERA5 data at 25 km resolution, which includes variables such as *u*, *v*, *t*, rh, and geopotential at different pressure levels (580, 700, 500, and 300 hPa). These variables are expected to improve precipitation data generation.
